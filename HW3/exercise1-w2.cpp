@@ -1,8 +1,18 @@
 #include <iostream>
-#include <unordered_map>
 #include <vector>
+#include <unordered_map>
 
 using namespace std;
+
+/*
+Assignment 2: exercise 1:
+    Given a list A of n integer numbers,
+    your task is to write a program to count
+    the number of pairs (i,j) that A[i]=A[j].
+    Input:
+        The first line contains an integer number n
+        The second line contains n integer numbers separated by spaces
+*/
 
 int comb(int a)
 {
@@ -34,6 +44,7 @@ int sol(const vector<int> &arr)
         res += comb(p.second);
     }
 
+    // Bucket stats
     // int n = mp.bucket_count();
     // cout << "mp has " << n << " buckets." << endl;
     // for (unsigned i = 0; i < n; ++i)
@@ -43,12 +54,19 @@ int sol(const vector<int> &arr)
     //         cout << "[" << it->first << ":" << it->second << "] ";
     //     cout << endl;
     // }
+
     return res;
 }
 
 int main()
 {
-    vector<int> arr = {4, 1, 5, 5, 6, 1, 1, 7, 8, 2};
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
     cout << sol(arr);
     return 0;
 }
